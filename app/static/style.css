@@ -1,0 +1,57 @@
+/* Elements */
+body{
+
+}
+header{
+  text-align: center;
+}
+main{
+  max-width: 800px;
+  margin: auto;
+}
+section{
+  padding: 50px;
+}
+form{
+  max-width: 600px;
+  /*margin: auto;*/
+}
+h1{
+  color: #fff;
+}
+a:hover{
+  text-decoration: none;
+}
+label{
+  font-size: 10px;
+}
+textarea{
+  width: 100%;
+}
+
+/* Bootstrap overrides */
+.jumbotron{
+  color: #fff;
+  background-color: #442966;
+  border: 0px;
+  border-radius: 0;
+}
+.row{
+  margin-bottom: 10px;
+}
+[class^="btn"]{
+  color: #fff;
+  background-color: #442966;
+  border: 0px;
+}
+[class^="btn"]{
+  border: 0;
+}
+
+/* Other */
+.center{
+  text-align: center;
+}
+.hidden{
+  display: none;
+}

@@ -20,10 +20,10 @@ class TumblrAuth:
     def get_request_token(self, user_session_id):
         return self.oauth_sessions[user_session_id].fetch_request_token(TUMBLR_OAUTH_REQUEST_TOKEN_URL)
 
-    def get_user_authorization_url(self, user_session_id):
-        authorization_url = self.oauth_sessions[user_session_id].authorization_url(TUMBLR_OAUTH_AUTH_BASE_URL)
-        return authorization_url
+    def get_user_auth_url(self, user_session_id):
+        auth_url = self.oauth_sessions[user_session_id].authorization_url(TUMBLR_OAUTH_AUTH_BASE_URL)
+        return auth_url
 
     def get_access_token(self, user_session_id, user_redirect_url_with_auth):
-        self.oauth_sessions[user_session_id].parse_authorization_response(user_redirect_url_with_auth)
+        self.oauth_sessions[user_session_id].parse_auth_response(user_redirect_url_with_auth)
         self.oauth_sessions[user_session_id].fetch_access_token(TUMBLR_OAUTH_ACCESS_TOKEN_URL)

@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  <script src="{{url_for('static', filename='api.js')}}"></script>
+</head>
+
+<body>
+
+  <header class="jumbotron">
+    <a href="{{url_for('home')}}"><h1>TumbleAuth</h1></a>
+    <p>An example OAuth application using Flask.</p>
+  </header>
+
+  <main>
+
+    <section class="center">
+      <p>Congrats! Now you can do stuf with the Tumblr API!</p>
+    </section>
+
+    <section class="container">
+      <h2>Post to Your Blog</h2>
+      <p>Enter your blog name, post title, and post body to post to your blog. This will only work if you have authenticated.</p>
+
+      <form name="post" id="post-to-blog-form">
+
+        <div class="row">
+          <div class="col-md-4">
+            <label>Blog Name</label><br/>
+            <input type="text" name="blog-name" size="15">
+          </div>
+
+          <div class="col-md-4">
+            <label>Post Title</label><br/>
+            <input type="text" name="post-title" size="15">
+          </div>
+
+          <div class="col-md-4">
+            <label>Post Body</label><br/>
+            <input type="text" name="post-body" size="15">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <input type="submit" for="post" value="Post to Blog" class="btn-lg submit-button">
+          </div>
+        </div>
+
+      </form>
+    </section>
+
+    <section class="container">
+      <h2>Get Blog Data</h2>
+      <p>Enter your blog name to gets its data in JSON format. This will only work if you have authenticated (although nothing inherent to the API function actually requires authentication).</p>
+
+      <form name="get" id="get-from-blog-form">
+
+        <div class="row">
+          <div class="col-md-12">
+            <label>Blog Name</label><br/>
+            <input type="text" name="blog-name" size="15">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <input type="submit" for="get" value="Get Blog JSON" class="btn-lg submit-button">
+          </div>
+        </div>
+
+      </form>
+
+      <div>
+        <textarea rows="15" class="hidden" id="blog-json-response"></textarea>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

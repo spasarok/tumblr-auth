@@ -1,0 +1,21 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  <script src="{{url_for('static', filename='oauth.js')}}"></script>
+</head>
+<body>
+  <header class="jumbotron">
+    <a href="{{url_for('home')}}"><h1>TumbleAuth</h1></a>
+    <p>An example OAuth application using Flask.</p>
+  </header>
+  <main>
+    <section class="container">
+      <p>Whoops, authorization failed. Did you click 'Yes'?</p>
+      <p>
+        <button class="btn-lg" id="authenticate-button">Authorize</button>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+source ./scripts/env
+docker-compose up dev
