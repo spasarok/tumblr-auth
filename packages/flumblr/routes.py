@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+
 from flumblr.app import app
 from tumblr_auth.services.auth import TumblrAuth
 from tumblr_auth.services.api import TumblrApi
@@ -20,13 +21,13 @@ def unauthorized():
 
 @app.route('/oauth/auth_url')
 def get_auth_url():
-    global tumblr_auth
     user_session_id = tumblr_auth.create_oauth_session('http://' + request.host + '/oauth/user/')
     tumblr_auth.get_request_token(user_session_id)
-    return 'HTTP/1.1 200 OK\n\n' + tumblr_auth.get_user_authorization_url(user_session_id)
+    return 'HTTP/1.1 200 OK\n\n' + tumblr_auth.get_user_auth_url(user_session_id)
 
 @app.route('/oauth/user/<user_session_id>', methods=['GET'])
 def get_access_token(user_session_id):
+    print('HERE')
     try:
         tumblr_auth.get_access_token(user_session_id, request.url)
         return render_template('session-redirect.html')

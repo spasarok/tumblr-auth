@@ -28,13 +28,13 @@ createAndSendXHR = function(serializedData, method, endpoint, callback){
 
 getFormData = function(formSelector){
   var inputs = {
-    'tumbleauth_user_blog_name': document.querySelectorAll(formSelector + ' [name=blog-name]'),
+    'user_blog_name': document.querySelectorAll(formSelector + ' [name=blog-name]'),
     'title': document.querySelectorAll(formSelector + ' [name=post-title]'),
     'body': document.querySelectorAll(formSelector + ' [name=post-body]')
   }
 
   var data = {
-    'tumbleauth_user_session_id': sessionStorage.getItem('userSessionId'),
+    'user_session_id': sessionStorage.getItem('userSessionId'),
   };
 
   for(var input in inputs){

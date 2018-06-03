@@ -13,7 +13,7 @@ class TumblrApi:
         if not validate_request_params(data, ['user_blog_name', 'user_session_id']):
             return 'HTTP/1.1 500\n\nInvalid request'
 
-        user_blog_name = data['_user_blog_name']
+        user_blog_name = data['user_blog_name']
         user_session_id = data['user_session_id']
         api_url = TUMBLR_API_USER_POST_URL.format(user_blog_name)
 

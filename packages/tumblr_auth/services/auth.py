@@ -25,5 +25,5 @@ class TumblrAuth:
         return auth_url
 
     def get_access_token(self, user_session_id, user_redirect_url_with_auth):
-        self.oauth_sessions[user_session_id].parse_auth_response(user_redirect_url_with_auth)
+        self.oauth_sessions[user_session_id].parse_authorization_response(user_redirect_url_with_auth)
         self.oauth_sessions[user_session_id].fetch_access_token(TUMBLR_OAUTH_ACCESS_TOKEN_URL)
