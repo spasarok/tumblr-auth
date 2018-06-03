@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 services:
   web:
     build:
@@ -6,8 +6,13 @@ services:
       dockerfile: Dockerfile
     image: flumblr:latest
   dev:
+    environment:
+      - TUMBLR_ACCESS_KEY
+      - TUMBLR_SECRET_KEY
     image: flumblr:latest
-    ports: 5000:5000
+    ports:
+      - 5000:5000
     volumes:
-      - ./app:/home/docker/app
-      - ./tumblr_auth:/home/docker/packages/tumblr_auth
+      - ./packages/flumblr:/home/docker/packages/flumblr
+      - ./packages/tumblr_auth:/home/docker/packages/tumblr_auth
+      - ./docker/bin/cmd:/usr/local/bin/cmd

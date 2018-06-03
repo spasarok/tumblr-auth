@@ -1,0 +1,4 @@
+import os
+
+TUMBLR_ACCESS_KEY = os.environ['TUMBLR_ACCESS_KEY']
+TUMBLR_SECRET_KEY = os.environ['TUMBLR_SECRET_KEY']

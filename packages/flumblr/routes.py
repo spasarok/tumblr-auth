@@ -1,14 +1,14 @@
 from flask import Flask, request, render_template
-from app import app
+from flumblr.app import app
 from tumblr_auth.services.auth import TumblrAuth
 from tumblr_auth.services.api import TumblrApi
 
-tumblr_auth = TumbleAuth()
-tumbleapi_service = TumbleApi(tumblr_auth)
+tumblr_auth = TumblrAuth()
+tumblr_api = TumblrApi(tumblr_auth)
 
 def sanity_check(user_session_id):
     # Sanity check, should be 200
-    print tumblr_auth.oauth_sessions[user_session_id].get('http://api.tumblr.com/v2/user/dashboard')
+    print(tumblr_auth.oauth_sessions[user_session_id].get('http://api.tumblr.com/v2/user/dashboard'))
 
 @app.route('/')
 def home():
@@ -43,4 +43,4 @@ def post():
 
 @app.route('/api/get', methods=['POST'])
 def get():
-    return tumbleapi_service.get_blog_json(request.form)
+    return tumblr_api.get_blog_json(request.form)
