@@ -1,4 +1,5 @@
 from flask import Flask
 
 app = Flask(__name__)
-import flumblr.routes 
+
+import flumblr.routes

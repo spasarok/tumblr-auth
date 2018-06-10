@@ -1,4 +1,4 @@
-if(!sessionStorage.getItem('userSessionId')){
+if(!sessionStorage.getItem('userAuthString')){
   window.location.href = 'http://' + window.location.host + '/unauthorized';
 }
 

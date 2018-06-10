@@ -1,5 +1,7 @@
-// Store user oauth session identifier in session storage and redirect to safe url
-var path = window.location.pathname;
-var userSessionId = path.split('/')[3];
-sessionStorage.setItem('userSessionId', userSessionId);
+// Store user access info in session storage and redirect to safe url
+var userAuthString = window.location.search.substring(1);
+
+// To Do: validate auth string befor redirect
+
+sessionStorage.setItem('userAuthString', userAuthString);
 window.location.href = window.location.protocol + '//' + window.location.host + '/user';
