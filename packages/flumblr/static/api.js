@@ -34,7 +34,7 @@ getFormData = function(formSelector){
   }
 
   var data = {
-    'user_session_id': sessionStorage.getItem('userSessionId'),
+    'user_auth_string': sessionStorage.getItem('userAuthString'),
   };
 
   for(var input in inputs){

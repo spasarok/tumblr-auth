@@ -1,5 +1,8 @@
 // Store user access info in session storage and redirect to safe url
-var userAuthString = window.location.search.substring(1);
+// var userAuthString = window.location.search.substring(1);
+var userAuthString = window.location.href
+console.log(userAuthString)
+
 
 // To Do: validate auth string befor redirect
 

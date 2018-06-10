@@ -1,3 +1,4 @@
+import sys
 from requests_oauthlib import OAuth1Session
 
 from tumblr_auth.utils.functions import create_random_id
@@ -10,7 +11,7 @@ TUMBLR_OAUTH_REQUEST_TOKEN_URL = 'http://www.tumblr.com/oauth/request_token'
 def OauthSession(object):
     pass
 
-def create_oauth_session(user_redirect_url):
+def _create_oauth_session(user_redirect_url=None):
     """
     Create an oauth session that will use our Tumblr application keys and
     that will redirect users to the specified url after they authenticate
@@ -49,7 +50,7 @@ def _get_tumblr_auth_url(oauth_session):
     return oauth_session.authorization_url(TUMBLR_OAUTH_AUTH_BASE_URL)
 
 
-def get_tumblr_auth_url(oauth_session):
+def get_tumblr_auth_url(user_redirect_url):
     """
     Get Tumblr authorization url as a dictionary.
 
@@ -63,9 +64,10 @@ def get_tumblr_auth_url(oauth_session):
             "tumblr_auth_url": value
         }
     """
+    oauth_session = _create_oauth_session(user_redirect_url)
     request_token = _get_request_token(oauth_session)
     tumblr_auth_url = _get_tumblr_auth_url(oauth_session)
-    tumblr_auth_url_dict = {
+    tumblr_auth_dict = {
         "tumblr_auth_url": tumblr_auth_url
     }
-    return tumblr_auth_url_dict
+    return tumblr_auth_dict
